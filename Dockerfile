@@ -1,8 +1,4 @@
-FROM docker.cucloud.net/base
-
-# Need to use old source list for apache22, this is required by CUWA
-RUN mv /etc/apt/sources.list /tmp
-COPY precise-sources.list /etc/apt/sources.list.d/precise-sources.list
+FROM docker.cucloud.net/base12
 
 # Install.
 RUN \
@@ -15,7 +11,7 @@ COPY conf/cuwebauth.load /etc/apache2/mods-available/cuwebauth.load
 COPY lib/libcom_err.so.3 /lib/libcom_err.so.3
 COPY lib/mod_cuwebauth.so /usr/lib/apache2/modules/mod_cuwebauth.so
 
-## copy keytbabs
+# we will use for data and what not
 RUN mkdir /infra/
 
 # turn on mods
