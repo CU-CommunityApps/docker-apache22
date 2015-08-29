@@ -1,5 +1,8 @@
 FROM docker.cucloud.net/base12
 
+# File Author / Maintainer
+MAINTAINER Shawn Bower <shawn.bower@gmail.com>
+
 # Install.
 RUN \
   apt-get update && \
