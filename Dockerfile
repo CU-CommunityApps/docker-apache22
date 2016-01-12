@@ -1,4 +1,4 @@
-FROM docker.cucloud.net/base12
+FROM dtr.cucloud.net/cs/base12
 
 # File Author / Maintainer
 MAINTAINER Shawn Bower <shawn.bower@gmail.com>
@@ -11,6 +11,7 @@ RUN \
 
 # copy files needed for CUWA
 COPY conf/cuwebauth.load /etc/apache2/mods-available/cuwebauth.load
+COPY conf/apache2.conf /etc/apache2/apache2.conf
 COPY lib/libcom_err.so.3 /lib/libcom_err.so.3
 COPY lib/mod_cuwebauth.so /usr/lib/apache2/modules/mod_cuwebauth.so
 
@@ -18,12 +19,12 @@ COPY lib/mod_cuwebauth.so /usr/lib/apache2/modules/mod_cuwebauth.so
 RUN mkdir /infra/
 
 # turn on mods
-RUN \ 
+RUN \
   a2enmod ssl \
   cuwebauth \
   rewrite \
   proxy \
-  proxy_http 
+  proxy_http
 
 EXPOSE 80
 EXPOSE 443
