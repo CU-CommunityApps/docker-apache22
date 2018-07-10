@@ -1,4 +1,4 @@
-FROM dtr.cucloud.net/cs/base12
+FROM 095493758574.dkr.ecr.us-east-1.amazonaws.com/base12
 
 # File Author / Maintainer
 MAINTAINER Shawn Bower <shawn.bower@gmail.com>
